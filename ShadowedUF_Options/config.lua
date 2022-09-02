@@ -1114,17 +1114,24 @@ local function loadGeneralOptions()
 								hidden = function(info) return select(2, UnitClass("player")) ~= "DEATHKNIGHT" end,
 							},
 							RUNES_FROST = {
-								order = 7,
+								order = 8,
 								type = "color",
 								name = "Runes (Frost)",
 								arg = "powerColors.RUNES_FROST",
 								hidden = function(info) return select(2, UnitClass("player")) ~= "DEATHKNIGHT" end,
 							},
 							RUNES_UNHOLY = {
-								order = 7,
+								order = 9,
 								type = "color",
 								name = "Runes (Unholy)",
 								arg = "powerColors.RUNES_UNHOLY",
+								hidden = function(info) return select(2, UnitClass("player")) ~= "DEATHKNIGHT" end,
+							},
+							RUNES_DEATH = {
+								order = 10,
+								type = "color",
+								name = "Runes (Death)",
+								arg = "powerColors.RUNES_DEATH",
 								hidden = function(info) return select(2, UnitClass("player")) ~= "DEATHKNIGHT" end,
 							},
 							COMBOPOINTS = {
