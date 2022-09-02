@@ -148,6 +148,7 @@ function ShadowUF:LoadDefaultLayout(useMerge)
 		RUNES_BLOOD = {r = 0.95, g = 0.0, b = 0.08},
 		RUNES_FROST = {r = 0.0, g = 0.85, b = 1.0},
 		RUNES_UNHOLY = {r = 0.0, g = 1.0, b = 0.35},
+		RUNES_DEATH = {r = 0.69, g = 0.15, b = 1.0},
 		RUNIC_POWER = {b = 0.60, g = 0.45, r = 0.35},
 		AMMOSLOT = {r = 0.85, g = 0.60, b = 0.55},
 		FUEL = {r = 0.85, g = 0.47, b = 0.36},

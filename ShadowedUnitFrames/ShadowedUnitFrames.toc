@@ -1,13 +1,13 @@
-## Interface: 20502
+## Interface: 30400
 ## Title: Shadowed Unit Frames
 ## Notes: Moooooooooooooooooo
 ## Author: Shadowed
-## Version: v4.3.2-classic
+## Version: v4.3.3-wotlk-classic
 ## SavedVariables: ShadowedUFDB
 ## X-Website: https://www.wowace.com/addons/shadowed-unit-frames/
 ## OptionalDeps: Ace3, LibSharedMedia-3.0, AceGUI-3.0-SharedMediaWidgets, LibSpellRange-1.0, Clique, LibHealComm-4.0
-## X-Curse-Project-ID: 19268
-## X-WoWI-ID: 13494
+## X-Curse-Project-ID: X19268
+## X-WoWI-ID: X13494
 
 #@no-lib-strip@
 libs\LibStub\LibStub.lua
