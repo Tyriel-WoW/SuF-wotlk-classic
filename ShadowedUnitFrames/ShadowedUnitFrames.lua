@@ -746,7 +746,7 @@ function ShadowUF:HideBlizzardFrames()
 		PlayerFrame:SetUserPlaced(true)
 		PlayerFrame:SetDontSavePosition(true)
 	end
-
+    
 	if( self.db.profile.hidden.pet and not active_hiddens.pet ) then
 		hideBlizzardFrames(false, PetFrame)
 	end

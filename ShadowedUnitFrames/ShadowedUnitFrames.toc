@@ -1,8 +1,8 @@
 ## Interface: 30400
 ## Title: Shadowed Unit Frames
 ## Notes: Moooooooooooooooooo
-## Author: Shadowed
-## Version: v4.3.3-wotlk-classic
+## Author: Shadowed (Modified by Tyriel)
+## Version: v4.3.4-wotlk-classic
 ## SavedVariables: ShadowedUFDB
 ## X-Website: https://www.wowace.com/addons/shadowed-unit-frames/
 ## OptionalDeps: Ace3, LibSharedMedia-3.0, AceGUI-3.0-SharedMediaWidgets, LibSpellRange-1.0, Clique, LibHealComm-4.0

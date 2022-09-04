@@ -29,10 +29,12 @@ function Runes:OnEnable(frame)
 	frame:RegisterNormalEvent("RUNE_POWER_UPDATE", self, "UpdateUsable")
 	frame:RegisterNormalEvent("RUNE_TYPE_UPDATE", self, "UpdateType")
  	frame:RegisterUpdateFunc(self, "UpdateUsable")
+ 	frame:RegisterUpdateFunc(self, "UpdateType")
 end
 
 function Runes:OnDisable(frame)
 	frame:UnregisterAll(self)
+	frame:UnregisterUpdateFunc(self, "Update")
 end
 
 function Runes:OnLayoutApplied(frame)
@@ -74,9 +76,16 @@ local function runeMonitor(self, elapsed)
 end
 
 -- Updates the timers on runes
-function Runes:UpdateUsable(frame, event, runeNumber, usable)
+function Runes:UpdateUsable(frame, event, runeNumber, ...)
     local order = {1, 2, 5, 6, 3, 4}
-	if( not runeNumber or not order[runeNumber] ) then
+	if( not runeNumber ) then
+        for i = 1, 6 do
+            self:UpdateUsable(frame, event, i)
+        end
+		return
+	end
+
+	if( not order[runeNumber] ) then
 		return
 	end
     
@@ -114,11 +123,24 @@ end
 
 -- Updates the color
 function Runes:UpdateType(frame, event, runeNumber, ...)
-	if( not runeNumber or not frame.runeBar.runes[runeNumber] ) then
+    local order = {1, 2, 5, 6, 3, 4}
+	if( not runeNumber ) then
+        for i = 1, 6 do
+            self:UpdateType(frame, event, i)
+        end
+		return
+	end
+    
+   	if( not order[runeNumber] ) then
 		return
 	end
 
-	local rune = frame.runeBar.runes[runeNumber]
+    local index = order[runeNumber]
+    if( not index or not frame.runeBar.runes[index] ) then
+		return
+	end
+
+	local rune = frame.runeBar.runes[index]
 
     -- Colorize by rune type
     local runeType = GetRuneType(runeNumber)
@@ -127,14 +149,14 @@ function Runes:UpdateType(frame, event, runeNumber, ...)
         local color = ShadowUF.db.profile.powerColors.RUNES_BLOOD
         frame:SetBlockColor(rune, "runeBar", color.r, color.g, color.b)
     end
-    -- RUNETYPE_CHROMATIC ("CHROMATIC" refers to Unholy runes)
+    -- RUNETYPE_FROST
     if(runeType == 2) then
-        local color = ShadowUF.db.profile.powerColors.RUNES_UNHOLY
+        local color = ShadowUF.db.profile.powerColors.RUNES_FROST
         frame:SetBlockColor(rune, "runeBar", color.r, color.g, color.b)
     end
-    -- RUNETYPE_FROST
+    -- RUNETYPE_CHROMATIC ("CHROMATIC" refers to Unholy runes)
     if(runeType == 3) then
-        local color = ShadowUF.db.profile.powerColors.RUNES_FROST
+        local color = ShadowUF.db.profile.powerColors.RUNES_UNHOLY
         frame:SetBlockColor(rune, "runeBar", color.r, color.g, color.b)
     end
     -- RUNETYPE_DEATH
